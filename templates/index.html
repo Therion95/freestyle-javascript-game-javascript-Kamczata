@@ -10,33 +10,52 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../game.js"></script>
+{#        <script src="../game.js"></script>#}
     <style>
         .dropdown-menu {
             width: 100%;
         }
+
+
     </style>
 </head>
 <body>
-    <h1 class="text-center">Javascript Game</h1>
-    <br><br>
-    <hr>
-    <br><br>
-    <div class="container">
-        <div class="row justify-content-md-center ">
-            <div class="col-lg-8">
-                <a href="#" type="button" class="btn btn-primary btn-block">New game</a>
-                <div class="btn-group btn-block">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        Difficulty level
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item text-center" href="#">Easy</a>
-                        <a class="dropdown-item text-center" href="#">Hard</a>
-                    </div>
+<h1 class="text-center">Javascript Game</h1>
+<br><br>
+<hr>
+<br><br>
+<div class="container">
+    <div class="row justify-content-md-center ">
+        <div class="col-lg-8">
+            <a href="#" type="button" class="btn btn-primary btn-block">New game</a>
+            <div class="btn-group btn-block">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Difficulty level
+                </button>
+                <div class="dropdown-menu">
+                    <div class="data-game-level" data-level="easy"><a class="dropdown-item text-center"
+                                                                      href="#">Easy</a></div>
+                    <div class="data-game-level" data-level="hard"><a class="dropdown-item text-center"
+                                                                      href="#">Hard</a></div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+{#<script>#}
+{#    console.log("cokolwiek");#}
+{#    let gameLevels = document.querySelectorAll(".data-game-level");#}
+{#    console.log(gameLevels);#}
+{##}
+{#    for (let gameLevel of gameLevels) {#}
+{#        gameLevel.addEventListener("click", initGameHandler);#}
+{#    }#}
+{##}
+{#    function initGameHandler() {#}
+{#        alert("Hellooooo");#}
+{#        console.log("coookolwiek");#}
+{#    }#}
+{#</script>#}
 </body>
 </html>
