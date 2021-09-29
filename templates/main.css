@@ -2,12 +2,61 @@
     width: 100%;
 }
 
-.card {
-    background-color: grey;
-    width: 100px;
-    height: 100px;
+.board {
+    margin-top: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    min-width: auto;
+    max-width: 500px;
+    /*position: relative;*/
+    /*width: 250px;*/
+    /*height: 320px;*/
+    /*background: green;*/
 }
+
+.card {
+    width: 50px;
+    height: 50px;
+    background-color: darkgrey;
+
+}
+
 
 .color-red {
     background-color: red;
+    backface-visibility: hidden;
+}
+
+.color-1 {
+    background: green;
+}
+
+.color-2 {
+    background: blue;
+}
+
+.color-3 {
+    background: darkred;
+}
+
+.color-4 {
+    background: purple;
+}
+
+.color-5 {
+    background: black;
+}
+
+.color-6 {
+    background: orange;
+}
+
+.color-7 {
+    background: pink;
+}
+
+.color-8 {
+    background: deepskyblue;
+
 }
