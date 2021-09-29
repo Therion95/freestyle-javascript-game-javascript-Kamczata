@@ -3,11 +3,21 @@
 }
 
 .card {
-    background-color: grey;
     width: 100px;
     height: 100px;
 }
 
-.color-red {
+
+
+[id="1"], [id="2"] {
     background-color: red;
+}
+
+
+[id="3"], [id="4"] {
+    background-color: blue;
+}
+
+[data-hidden-card="true"] {
+    background-color: grey;
 }

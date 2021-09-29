@@ -39,59 +39,41 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="2"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="3"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="4"></div>
 </div>
 <div class="row">
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="5"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="6"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="7"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="8"></div>
 </div>
 <div class="row">
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
 </div>
 <div class="row">
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
-    <div class="col-lg-3 card"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
 </div>
 
 
 <script>
-    console.log("cokolwiek");
-    let gameLevels = document.querySelectorAll(".data-game-level");
-    console.log(gameLevels);
 
+    let gameLevels = document.querySelectorAll(".card");
     for (let gameLevel of gameLevels) {
         gameLevel.addEventListener("click", initGameHandler);
     }
 
-    function initGameHandler() {
-        alert("Hellooooo");
-        console.log("coookolwiek");
+    function initGameHandler(e) {
+        e.currentTarget.setAttribute("data-hidden-card", "false")
     }
-
-    let gameCards = document.querySelectorAll(".card");
-    for (let card of gameCards) {
-        card.addEventListener("click", flipCardHandler);
-    }
-
-    function flipCardHandler(e) {
-        e.currentTarget.classList.add("color-red");
-    }
-
-{#    #TODO Karta musi byc szara by móc ją odwrócić (atrybut false?)#}
-{#            Tylko dwie karty na raz mogą być odwrócone#}
-{##}
-{#Żeby Karty pozostały odwrócone musza miec ten sam kolor#}
-{#Jezeli rozny kolor stają sie z powrotem na szaro#}
 
 </script>
 </body>
