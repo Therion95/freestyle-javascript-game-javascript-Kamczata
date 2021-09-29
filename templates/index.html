@@ -68,19 +68,24 @@
 
     let gameCards = document.querySelectorAll(".card");
     for (let gameLevel of gameCards) {
-        gameLevel.addEventListener("click", initGameHandler);
+        gameLevel.addEventListener("click", flipCardHandler);
     }
 
-    function initGameHandler(e) {
+    function flipCardHandler(e) {
+        let currentPair = []
         e.currentTarget.setAttribute("data-hidden-card", "false")
         let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
         let gameCards = document.querySelectorAll(".card");
         for (let card of gameCards) {
             if (currentlyFlippedCards.length < 2) {
                 this.classList.add("currently-flipped");
+                currentPair.push()
 
 
+            } else if (currentlyFlippedCards.length === 2) {
+                if currentlyFlippedCards.
             }
+
         }
     }
 
