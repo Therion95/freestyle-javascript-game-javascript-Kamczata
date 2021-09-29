@@ -40,28 +40,28 @@
 
 <div class="board">
     <div class="row">
-        <div class="col-lg-3 card back-side" id="1" data-side="front" ></div>
+        <div class="col-lg-3 card back-side" id="0" data-side="front" ></div>
+        <div class="col-lg-3 card back-side" id="1" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="2" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="3" data-side="back"></div>
-        <div class="col-lg-3 card back-side" id="4" data-side="back"></div>
     </div>
     <div class="row">
+        <div class="col-lg-3 card back-side" id="4" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="5" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="6" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="7" data-side="back"></div>
-        <div class="col-lg-3 card back-side" id="8" data-side="back"></div>
     </div>
     <div class="row">
+        <div class="col-lg-3 card back-side" id="8" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="9" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="10" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="11" data-side="back"></div>
-        <div class="col-lg-3 card back-side" id="12" data-side="back"></div>
     </div>
     <div class="row">
+        <div class="col-lg-3 card back-side" id="12" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="13" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="14" data-side="back"></div>
         <div class="col-lg-3 card back-side" id="15" data-side="back"></div>
-        <div class="col-lg-3 card back-side" id="16" data-side="back"></div>
     </div>
 </div>
 <br><br>
@@ -70,45 +70,96 @@
 
 <script>
 
-    var pairs = [["1","2", "color-1","0"],["3","4","color-2","1"],["5","6","color-3","2"],["7","8","color-4","3"],["9","10","color-5","4"],["11","12", "color-6","5"],["13","14","color-7","6"],["15","16","color-8","7"]];
+
+    function main() {
+
+    var pairs = [["0","1", "color-1","0"],["2","3","color-2","1"],["4","5","color-3","2"],["6","7","color-4","3"],["8","9","color-5","4"],["10","11", "color-6","5"],["12","13","color-7","6"],["14","15","color-8","7"]];
     var currentPair = [];
+    var currentPairIds = [];
     let gameCards = document.querySelectorAll(".back-side");
-    let currentlyFlippedCards = document.getElementsByClassName("currently-flipped");
+
     for (let card of gameCards) {
         card.addEventListener("click", flipCardHandler);
     }
 
     function flipCardHandler(e) {
-        for (let card of gameCards) {
-            if (currentlyFlippedCards.length < 2) {
-                this.classList.add("currently-flipped");
-                // for (let i=0;i<pairs.length;i++) {
-                //     if (this.id == pairs[i][0] || this.id == pairs[i][1]) {
-                //         this.classList.add(pairs[i][2]);
-                //         currentPair.push(i);
-                //     }
-                for (let pair of pairs) {
-                    if (this.id == pair[0] || this.id == pair[1]) {
+        let currentlyFlippedCards = document.getElementsByClassName("currently-flipped");
+        if (currentlyFlippedCards.length < 2 && currentPair.length < 2) {
+            this.classList.add("currently-flipped");
+            console.log(this.classList);
+            currentPairIds.push(this.id);
+            for (let pair of pairs) {
+                if (this.id == pair[0] || this.id == pair[1]) {
                     this.classList.add(pair[2]);
-                    currentPair.push(pair[3]);
+                    currentPair.push(pair[3])
                 }
-                }
-            } else if (currentlyFlippedCards.length == 2) {
-                // warunek na sparowanie
-                // usuń klasę backside i dodaj frontside
-                // if (currentPair[0] == currentPair[1]) {
-                //     alert("hurra");
-                // }
-                // this.classList.add("front-side");
-                // this.classList.remove("back-side");
-                alert("hurra");
-            } else {
-                // warunek gdy nie są sparowane
-                // usuń klasę currently_flipped
-                this.classList.remove("currently-flipped")
-             }
+            }
         }
     }
+            // else {
+        //     // zgodne karty
+        //      if (currentPair[0] == currentPair[1]) {
+        //     document.getElementById(currentPairIds[0]).classList.remove("back-side");
+        //     } else {
+        //     document.getElementById(currentPairIds[0]).classList.remove("currently-flipped");
+        //     }
+        // }
+        //     for (let currentCard of currentlyFlippedCards) {
+        //         currentCard.classList.remove("currently-flipped");
+        //     }
+        //
+        // }
+
+
+
+    // if (currentlyFlippedCards.length == 2) {
+    //
+    //     console.log(currentlyFlippedCards);
+      //   warunek na sparowanie
+      // usuń klasę backside i dodaj frontside
+      //   warunek gdy nie są sparowane
+      //      usuń klasę currently_flipped
+      //   if (currentPair[0] == currentPair[1]) {
+      //       document.getElementById(currentPairIds[0]).classList.remove("back-side");
+      //       document.getElementById(currentPairIds[1]).classList.remove("back-side");
+      //   } else {
+      //       document.getElementById(currentPairIds[0]).classList.remove("currently-flipped");
+      //       document.getElementById(currentPairIds[1]).classList.remove("currently-flipped");
+      //   }}
+
+    }
+    main();
+    // function flipCardHandler(e) {
+    //     for (let card of gameCards) {
+    //         if (currentlyFlippedCards.length < 2) {
+    //             this.classList.add("currently-flipped");
+    //             // for (let i=0;i<pairs.length;i++) {
+    //             //     if (this.id == pairs[i][0] || this.id == pairs[i][1]) {
+    //             //         this.classList.add(pairs[i][2]);
+    //             //         currentPair.push(i);
+    //             //     }
+    //             for (let pair of pairs) {
+    //                 if (this.id == pair[0] || this.id == pair[1]) {
+    //                 this.classList.add(pair[2]);
+    //                 currentPair.push(pair[2]);
+    //             }
+    //             }
+    //         } else if (currentlyFlippedCards.length == 2) {
+    //             // warunek na sparowanie
+    //             // usuń klasę backside i dodaj frontside
+    //             // if (currentPair[0] == currentPair[1]) {
+    //             //     alert("hurra");
+    //             // }
+    //             // this.classList.add("front-side");
+    //             // this.classList.remove("back-side");
+    //             alert("hurra");
+    //         } else {
+    //             // warunek gdy nie są sparowane
+    //             // usuń klasę currently_flipped
+    //             this.classList.remove("currently-flipped")
+    //          }
+    //     }
+    // }
 
 
 // {#    #TODO Karta musi byc szara by móc ją odwrócić (atrybut false?)#}
