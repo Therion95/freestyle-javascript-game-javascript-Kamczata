@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../game.js"></script>
+
 
 </head>
 <body>
@@ -66,14 +66,24 @@
 
 <script>
 
-    let gameLevels = document.querySelectorAll(".card");
-    for (let gameLevel of gameLevels) {
+    let gameCards = document.querySelectorAll(".card");
+    for (let gameLevel of gameCards) {
         gameLevel.addEventListener("click", initGameHandler);
     }
 
     function initGameHandler(e) {
         e.currentTarget.setAttribute("data-hidden-card", "false")
+        let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
+        let gameCards = document.querySelectorAll(".card");
+        for (let card of gameCards) {
+            if (currentlyFlippedCards.length < 2) {
+                this.classList.add("currently-flipped");
+
+
+            }
+        }
     }
+
 
 </script>
 </body>
