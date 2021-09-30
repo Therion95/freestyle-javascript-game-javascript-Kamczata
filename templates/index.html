@@ -71,16 +71,18 @@
     let gameCards = document.querySelectorAll(".card");
     let currentPairOfColors = [];
     let selectedCardsIds = [];
-    let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
+    //let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
     for (let gameLevel of gameCards) {
         gameLevel.addEventListener("click", flipCardHandler);
     }
 
     function flipCardHandler(e) {
 
-        e.currentTarget.setAttribute("data-hidden-card", "false");
+        if (this.getAttribute("data-hidden-card") === "true") {
 
-        let getCardColor = e.currentTarget.getAttribute('data-color');
+        this.setAttribute("data-hidden-card", "false");
+
+        let getCardColor = this.getAttribute('data-color');
         currentPairOfColors.push(getCardColor);
         selectedCardsIds.push(this.getAttribute('id'));
         console.log(getCardColor);
@@ -88,7 +90,7 @@
 
         if (selectedCardsIds.length === 2 && selectedCardsIds[0] !== selectedCardsIds[1]) {
 
-            setTimeout(checkForMatch, 1000);
+            setTimeout(checkForMatch, 500);
 
             function checkForMatch() {
                 if (currentPairOfColors[0] !== currentPairOfColors[1] && selectedCardsIds[0] !== selectedCardsIds[1]) {
@@ -113,7 +115,7 @@
         /*else if (currentPairOfColors.length === 3) {
             console.log("Hey only two m8!");
         }*/
-
+    }
 
     }
 
