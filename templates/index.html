@@ -79,30 +79,31 @@
 
         e.currentTarget.classList.add("currently-flipped");
         e.currentTarget.setAttribute("data-hidden-card", "false");
-        let currentlyFlippedCards = document.querySelectorAll(".currently-flipped");
+
 
         let getFlippedCard = document.querySelector(".currently-flipped");
-        let getCardColor = this.getAttribute('data-color');
+        let getCardColor = e.currentTarget.getAttribute('data-color');
         currentPairOfColors.push(getCardColor);
         console.log(getCardColor);
         console.log(currentPairOfColors);
 
         if (currentPairOfColors.length === 2) {
-            let elements = document.querySelectorAll(".currently-flipped");
+            let currentlyFlippedCards = document.querySelectorAll(".currently-flipped");
 
             if (currentPairOfColors[0] !== currentPairOfColors[1]) {
                 alert("Not the same colors");
-                while (elements.length > 0) {
-                    elements[0].setAttribute("data-hidden-card", "true");
-                    elements[0].classList.remove('currently-flipped');
+
+                for (let card of currentlyFlippedCards) {
+                    card.setAttribute("data-hidden-card", "true");
+                    card.classList.remove('currently-flipped');
                 }
                 currentPairOfColors.length = 0;
 
             } else if (currentPairOfColors[0] === currentPairOfColors[1]) {
                 alert("great!")
                 currentPairOfColors.length = 0;
-                while (elements.length > 0) {
-                    elements[0].classList.remove('currently-flipped');
+                for (let card of currentlyFlippedCards) {
+                    currentlyFlippedCards[0].classList.remove('currently-flipped');
 
                 }
             }
