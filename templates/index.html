@@ -90,30 +90,35 @@
         if (currentPairOfColors.length === 2) {
             let currentlyFlippedCards = document.querySelectorAll(".currently-flipped");
 
-            if (currentPairOfColors[0] !== currentPairOfColors[1]) {
-                console.log("Not the same colors");
+            setTimeout(checkForMatch, 1000);
 
-                for (let card of currentlyFlippedCards) {
-                    card.setAttribute("data-hidden-card", "true");
-                    card.classList.remove('currently-flipped');
-                }
-                currentPairOfColors.length = 0;
+            function checkForMatch() {
+                if (currentPairOfColors[0] !== currentPairOfColors[1]) {
+                    console.log("Not the same colors");
 
-            } else if (currentPairOfColors[0] === currentPairOfColors[1]) {
-                console.log("great!")
-                currentPairOfColors.length = 0;
-                for (let card of currentlyFlippedCards) {
-                    currentlyFlippedCards[0].classList.remove('currently-flipped');
+                    for (let card of currentlyFlippedCards) {
+                        console.log(card)
+                        card.setAttribute("data-hidden-card", "true");
+                        card.classList.remove('currently-flipped');
+                    }
+                    currentPairOfColors.length = 0;
 
+                } else if (currentPairOfColors[0] === currentPairOfColors[1]) {
+                    console.log("great!")
+                    currentPairOfColors.length = 0;
+                    for (let card of currentlyFlippedCards) {
+                        console.log(card)
+                        currentlyFlippedCards[0].classList.remove('currently-flipped');
+
+                    }
                 }
             }
 
-        } else if (currentPairOfColors.length === 3) {
+        }
+        /*else if (currentPairOfColors.length === 3) {
             console.log("Hey only two m8!");
-        }
-        if (this.classList) {
+        }*/
 
-        }
 
     }
 
