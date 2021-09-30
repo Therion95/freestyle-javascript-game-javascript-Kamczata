@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Javascript Game</title>
+    <title>Colors</title>
     <meta charset="UTF-8">
     <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
     <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -15,55 +15,50 @@
 
 </head>
 <body>
-<h1 class="text-center">Javascript Game</h1>
-<br><br>
+<h1 class="text-center title">COLORS</h1>
 <hr>
 <br><br>
-<div class="container">
-    <div class="row justify-content-md-center ">
-        <div class="col-lg-8">
-            <a href="#" type="button" class="btn btn-primary btn-block">New game</a>
-            <div class="btn-group btn-block">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                    Difficulty level
-                </button>
-                <div class="dropdown-menu">
-                    <div class="data-game-level" data-level="easy"><a class="dropdown-item text-center"
-                                                                      href="#">Easy</a></div>
-                    <div class="data-game-level" data-level="hard"><a class="dropdown-item text-center"
-                                                                      href="#">Hard</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="container">-->
+<!--    <div class="row justify-content-md-center ">-->
+<!--        <div class="col-lg-8">-->
+<!--            <a href="#" type="button" class="btn btn-primary btn-block">New game</a>-->
+<!--            <div class="btn-group btn-block">-->
+<!--                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">-->
+<!--                    Difficulty level-->
+<!--                </button>-->
+<!--                <div class="dropdown-menu">-->
+<!--                    <div class="data-game-level" data-level="easy"><a class="dropdown-item text-center"-->
+<!--                                                                      href="#">Easy</a></div>-->
+<!--                    <div class="data-game-level" data-level="hard"><a class="dropdown-item text-center"-->
+<!--                                                                      href="#">Hard</a></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="grid-container">
 
-<div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="1" data-color="red"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="2" data-color="red"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="3" data-color="blue"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="4" data-color="blue"></div>
-</div>
-<div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="5" data-color="yellow"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="6" data-color="yellow"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="7"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="8"></div>
-</div>
-<div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-</div>
-<div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-</div>
-<br><br>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1" data-color="color-1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="2" data-color="color-1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="3" data-color="color-2"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="4" data-color="color-2"></div>
 
+    <div class="col-lg-3 card" data-hidden-card="true" id="5" data-color="color-3"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="6" data-color="color-3"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="7" data-color="color-4"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="8" data-color="color-4"></div>
+
+    <div class="col-lg-3 card" data-hidden-card="true" id="9" data-color="color-5"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="10" data-color="color-5"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="11" data-color="color-6"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="12" data-color="color-6"></div>
+
+    <div class="col-lg-3 card" data-hidden-card="true" id="13" data-color="color-7"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="14" data-color="color-7"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="15" data-color="color-8"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="16" data-color="color-8"></div>
+
+</div>
 
 
 <script>
@@ -71,22 +66,26 @@
     let gameCards = document.querySelectorAll(".card");
     let currentPairOfColors = [];
     let selectedCardsIds = [];
-    //let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
+
     for (let gameLevel of gameCards) {
         gameLevel.addEventListener("click", flipCardHandler);
     }
 
     function flipCardHandler(e) {
 
+
         if (this.getAttribute("data-hidden-card") === "true") {
 
+        this.classList.add("flip");
         this.setAttribute("data-hidden-card", "false");
+
+        checkGameStatus();
 
         let getCardColor = this.getAttribute('data-color');
         currentPairOfColors.push(getCardColor);
         selectedCardsIds.push(this.getAttribute('id'));
-        console.log(getCardColor);
-        console.log(currentPairOfColors);
+        // console.log(getCardColor);
+        // console.log(currentPairOfColors);
 
         if (selectedCardsIds.length === 2 && selectedCardsIds[0] !== selectedCardsIds[1]) {
 
@@ -95,26 +94,41 @@
             function checkForMatch() {
                 if (currentPairOfColors[0] !== currentPairOfColors[1] && selectedCardsIds[0] !== selectedCardsIds[1]) {
                     console.log("Not the same colors");
-                    document.getElementById(selectedCardsIds[0]).setAttribute("data-hidden-card", "true");
-                    document.getElementById(selectedCardsIds[1]).setAttribute("data-hidden-card", "true");
 
+                    let firstCard = document.getElementById(selectedCardsIds[0]);
+                    let secondCard = document.getElementById(selectedCardsIds[1]);
 
-                    selectedCardsIds.length = 0;
-                    currentPairOfColors.length = 0;
+                    firstCard.setAttribute("data-hidden-card", "true");
+                    firstCard.classList.remove("flip");
 
-                } else {
-                    console.log("great!");
-                    selectedCardsIds.length = 0;
-                    currentPairOfColors.length = 0;
+                    secondCard.setAttribute("data-hidden-card", "true");
+                    secondCard.classList.remove("flip");
+
+                    selectedCardsIds = [];
+                    currentPairOfColors = [];
+
+                    } else {
+                        console.log("great!");
+                        selectedCardsIds = [];
+                        currentPairOfColors = [];
 
                 }
             }
 
         }
 
-        /*else if (currentPairOfColors.length === 3) {
-            console.log("Hey only two m8!");
-        }*/
+        function checkGameStatus() {
+            let hiddenCards = 16;
+            for (let card of gameCards) {
+                if (card.getAttribute("data-hidden-card") == "false") {
+                    hiddenCards--;
+                }
+            }
+            if (hiddenCards == 0) {
+                alert("You won");
+            }
+        }
+
     }
 
     }

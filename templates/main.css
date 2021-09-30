@@ -2,39 +2,84 @@
     width: 100%;
 }
 
-.board {
-    margin-top: 60px;
-    margin-right: auto;
+
+.title {
     margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: Arvo, serif;
+    font-size: 80px;
+    font-weight: 100;
+    color: rgba(0, 0, 0, 1);
+    text-transform: none;
+    font-style: normal;
+    text-decoration: none;
+    letter-spacing: 15px;
+}
+
+
+
+.grid-container {
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
     align-items: center;
-    min-width: auto;
-    max-width: 500px;
-    /*position: relative;*/
-    /*width: 250px;*/
-    /*height: 320px;*/
-    /*background: green;*/
+    justify-content: center;
+
 }
 
 .card {
     width: 100px;
     height: 100px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.flip {
+    transform: rotateY(180deg);
 }
 
 
 
 [id="1"], [id="2"] {
-    background-color: red;
+    background-color: #5f0f40;
 }
 
 
 [id="3"], [id="4"] {
-    background-color: blue;
+    background-color: #9a031e;
 }
 
 [id="5"], [id="6"] {
-    background-color: yellow;
+    background-color: #e36414;
 }
 
+[id="7"], [id="8"] {
+    background-color: #ffb700;
+}
+
+[id="9"], [id="10"] {
+    background-color: #DF0E62;
+}
+
+[id="11"], [id="12"] {
+    background-color: #38a3a5;
+}
+
+[id="13"], [id="14"] {
+    background-color: #0f4c5c;
+}
+
+[id="15"], [id="16"] {
+    background-color: #7fb800;
+}
+
+
 [data-hidden-card="true"] {
-    background-color: grey;
+    background-color: #E7E5DF;
 }
