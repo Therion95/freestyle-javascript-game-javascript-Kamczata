@@ -68,53 +68,46 @@
 
     let gameCards = document.querySelectorAll(".card");
     let currentPairOfColors = [];
+    let selectedCardsIds = [];
     let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
     for (let gameLevel of gameCards) {
-        if (currentlyFlippedCards.length < 2) {
-            gameLevel.addEventListener("click", flipCardHandler);
-        }
+        gameLevel.addEventListener("click", flipCardHandler);
     }
 
     function flipCardHandler(e) {
 
-        e.currentTarget.classList.add("currently-flipped");
         e.currentTarget.setAttribute("data-hidden-card", "false");
 
-
-        let getFlippedCard = document.querySelector(".currently-flipped");
         let getCardColor = e.currentTarget.getAttribute('data-color');
         currentPairOfColors.push(getCardColor);
+        selectedCardsIds.push(this.getAttribute('id'));
         console.log(getCardColor);
         console.log(currentPairOfColors);
 
-        if (currentPairOfColors.length === 2) {
-            let currentlyFlippedCards = document.querySelectorAll(".currently-flipped");
+        if (selectedCardsIds.length === 2 && selectedCardsIds[0] !== selectedCardsIds[1]) {
 
             setTimeout(checkForMatch, 1000);
 
             function checkForMatch() {
-                if (currentPairOfColors[0] !== currentPairOfColors[1]) {
+                if (currentPairOfColors[0] !== currentPairOfColors[1] && selectedCardsIds[0] !== selectedCardsIds[1]) {
                     console.log("Not the same colors");
+                    document.getElementById(selectedCardsIds[0]).setAttribute("data-hidden-card", "true");
+                    document.getElementById(selectedCardsIds[1]).setAttribute("data-hidden-card", "true");
 
-                    for (let card of currentlyFlippedCards) {
-                        console.log(card)
-                        card.setAttribute("data-hidden-card", "true");
-                        card.classList.remove('currently-flipped');
-                    }
+
+                    selectedCardsIds.length = 0;
                     currentPairOfColors.length = 0;
 
-                } else if (currentPairOfColors[0] === currentPairOfColors[1]) {
-                    console.log("great!")
+                } else {
+                    console.log("great!");
+                    selectedCardsIds.length = 0;
                     currentPairOfColors.length = 0;
-                    for (let card of currentlyFlippedCards) {
-                        console.log(card)
-                        currentlyFlippedCards[0].classList.remove('currently-flipped');
 
-                    }
                 }
             }
 
         }
+
         /*else if (currentPairOfColors.length === 3) {
             console.log("Hey only two m8!");
         }*/
