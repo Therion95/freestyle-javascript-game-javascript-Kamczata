@@ -39,28 +39,28 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="1" data-color="red"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="2" data-color="red"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="3" data-color="blue"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="4" data-color="blue"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1" data-color="color-1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="2" data-color="color-1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="3" data-color="color-2"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="4" data-color="color-2"></div>
 </div>
 <div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="5" data-color="yellow"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="6" data-color="yellow"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="7"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="8"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="5" data-color="color-3"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="6" data-color="color-3"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="7" data-color="color-4"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="8" data-color="color-4"></div>
 </div>
 <div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="9" data-color="color-5"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="10" data-color="color-5"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="11" data-color="color-6"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="12" data-color="color-6"></div>
 </div>
 <div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="13" data-color="color-7"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="14" data-color="color-7"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="15" data-color="color-8"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="16" data-color="color-8"></div>
 </div>
 <br><br>
 
@@ -71,48 +71,47 @@
     let gameCards = document.querySelectorAll(".card");
     let currentPairOfColors = [];
     let selectedCardsIds = [];
-    let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
+    //let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
+
     for (let gameLevel of gameCards) {
         gameLevel.addEventListener("click", flipCardHandler);
     }
 
     function flipCardHandler(e) {
+        if (this.getAttribute("data-hidden-card") === true) {
 
-        e.currentTarget.setAttribute("data-hidden-card", "false");
+            this.setAttribute("data-hidden-card", "false");
 
-        let getCardColor = e.currentTarget.getAttribute('data-color');
-        currentPairOfColors.push(getCardColor);
-        selectedCardsIds.push(this.getAttribute('id'));
-        console.log(getCardColor);
-        console.log(currentPairOfColors);
+            let getCardColor = this.getAttribute('data-color');
+            currentPairOfColors.push(getCardColor);
+            selectedCardsIds.push(this.getAttribute('id'));
+            console.log(getCardColor);
+            console.log(currentPairOfColors);
 
-        if (selectedCardsIds.length === 2 && selectedCardsIds[0] !== selectedCardsIds[1]) {
+            if (selectedCardsIds.length === 2 && selectedCardsIds[0] !== selectedCardsIds[1]) {
 
-            setTimeout(checkForMatch, 1000);
+                setTimeout(checkForMatch, 500);
 
-            function checkForMatch() {
-                if (currentPairOfColors[0] !== currentPairOfColors[1] && selectedCardsIds[0] !== selectedCardsIds[1]) {
-                    console.log("Not the same colors");
-                    document.getElementById(selectedCardsIds[0]).setAttribute("data-hidden-card", "true");
-                    document.getElementById(selectedCardsIds[1]).setAttribute("data-hidden-card", "true");
+                function checkForMatch() {
+                    if (currentPairOfColors[0] !== currentPairOfColors[1] && selectedCardsIds[0] !== selectedCardsIds[1]) {
+                        console.log("Not the same colors");
+                        document.getElementById(selectedCardsIds[0]).setAttribute("data-hidden-card", "true");
+                        document.getElementById(selectedCardsIds[1]).setAttribute("data-hidden-card", "true");
 
 
-                    selectedCardsIds.length = 0;
-                    currentPairOfColors.length = 0;
+                        selectedCardsIds.length = 0;
+                        currentPairOfColors.length = 0;
 
-                } else {
-                    console.log("great!");
-                    selectedCardsIds.length = 0;
-                    currentPairOfColors.length = 0;
+                    } else {
+                        console.log("great!");
+                        selectedCardsIds = [];
+                        currentPairOfColors = [];
 
+                    }
                 }
+
             }
-
         }
-
-        /*else if (currentPairOfColors.length === 3) {
-            console.log("Hey only two m8!");
-        }*/
 
 
     }

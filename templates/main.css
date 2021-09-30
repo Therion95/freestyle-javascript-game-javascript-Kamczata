@@ -23,18 +23,39 @@
 
 
 [id="1"], [id="2"] {
-    background-color: red;
+    background-color: #5f0f40;
 }
 
 
 [id="3"], [id="4"] {
-    background-color: blue;
+    background-color: #9a031e;
 }
 
 [id="5"], [id="6"] {
-    background-color: yellow;
+    background-color: #e36414;
 }
 
+[id="7"], [id="8"] {
+    background-color: #ffb700;
+}
+
+[id="9"], [id="10"] {
+    background-color: #DF0E62;
+}
+
+[id="11"], [id="12"] {
+    background-color: #38a3a5;
+}
+
+[id="13"], [id="14"] {
+    background-color: #0f4c5c;
+}
+
+[id="15"], [id="16"] {
+    background-color: #132a13;
+}
+
+
 [data-hidden-card="true"] {
-    background-color: grey;
+    background-color: #E7E5DF;
 }
