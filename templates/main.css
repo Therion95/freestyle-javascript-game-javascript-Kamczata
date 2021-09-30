@@ -18,6 +18,10 @@
     background-color: blue;
 }
 
+[id="5"], [id="6"] {
+    background-color: yellow;
+}
+
 [data-hidden-card="true"] {
     background-color: grey;
 }

@@ -39,14 +39,14 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="2"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="3"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="4"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="1" data-color="red"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="2" data-color="red"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="3" data-color="blue"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="4" data-color="blue"></div>
 </div>
 <div class="row">
-    <div class="col-lg-3 card" data-hidden-card="true" id="5"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="6"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="5" data-color="yellow"></div>
+    <div class="col-lg-3 card" data-hidden-card="true" id="6" data-color="yellow"></div>
     <div class="col-lg-3 card" data-hidden-card="true" id="7"></div>
     <div class="col-lg-3 card" data-hidden-card="true" id="8"></div>
 </div>
@@ -67,26 +67,53 @@
 <script>
 
     let gameCards = document.querySelectorAll(".card");
+    let currentPairOfColors = [];
+    let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
     for (let gameLevel of gameCards) {
-        gameLevel.addEventListener("click", flipCardHandler);
+        if (currentlyFlippedCards.length < 2) {
+            gameLevel.addEventListener("click", flipCardHandler);
+        }
     }
 
     function flipCardHandler(e) {
-        let currentPair = []
-        e.currentTarget.setAttribute("data-hidden-card", "false")
-        let currentlyFlippedCards = document.querySelectorAll(".currently-flipped")
-        let gameCards = document.querySelectorAll(".card");
-        for (let card of gameCards) {
-            if (currentlyFlippedCards.length < 2) {
-                this.classList.add("currently-flipped");
-                currentPair.push()
 
+        e.currentTarget.classList.add("currently-flipped");
+        e.currentTarget.setAttribute("data-hidden-card", "false");
+        let currentlyFlippedCards = document.querySelectorAll(".currently-flipped");
 
-            } else if (currentlyFlippedCards.length === 2) {
-                if currentlyFlippedCards.
+        let getFlippedCard = document.querySelector(".currently-flipped");
+        let getCardColor = this.getAttribute('data-color');
+        currentPairOfColors.push(getCardColor);
+        console.log(getCardColor);
+        console.log(currentPairOfColors);
+
+        if (currentPairOfColors.length === 2) {
+            let elements = document.querySelectorAll(".currently-flipped");
+
+            if (currentPairOfColors[0] !== currentPairOfColors[1]) {
+                alert("Not the same colors");
+                while (elements.length > 0) {
+                    elements[0].setAttribute("data-hidden-card", "true");
+                    elements[0].classList.remove('currently-flipped');
+                }
+                currentPairOfColors.length = 0;
+
+            } else if (currentPairOfColors[0] === currentPairOfColors[1]) {
+                alert("great!")
+                currentPairOfColors.length = 0;
+                while (elements.length > 0) {
+                    elements[0].classList.remove('currently-flipped');
+
+                }
             }
 
+        } else if (currentPairOfColors.length === 3) {
+            alert("Hey only two m8!");
         }
+        if (this.classList) {
+
+        }
+
     }
 
 
