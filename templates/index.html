@@ -38,25 +38,25 @@
 <!--</div>-->
 <div class="grid-container">
 
-    <div class="col-lg-3 card" data-hidden-card="true" id="1" data-color="color-1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="2" data-color="color-1"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="3" data-color="color-2"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="4" data-color="color-2"></div>
+    <div class="card" data-hidden-card="true" id="1" data-color="color-1"></div>
+    <div class="card" data-hidden-card="true" id="2" data-color="color-1"></div>
+    <div class="card" data-hidden-card="true" id="3" data-color="color-2"></div>
+    <div class="card" data-hidden-card="true" id="4" data-color="color-2"></div>
 
-    <div class="col-lg-3 card" data-hidden-card="true" id="5" data-color="color-3"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="6" data-color="color-3"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="7" data-color="color-4"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="8" data-color="color-4"></div>
+    <div class="card" data-hidden-card="true" id="5" data-color="color-3"></div>
+    <div class="card" data-hidden-card="true" id="6" data-color="color-3"></div>
+    <div class="card" data-hidden-card="true" id="7" data-color="color-4"></div>
+    <div class="card" data-hidden-card="true" id="8" data-color="color-4"></div>
 
-    <div class="col-lg-3 card" data-hidden-card="true" id="9" data-color="color-5"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="10" data-color="color-5"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="11" data-color="color-6"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="12" data-color="color-6"></div>
+    <div class="card" data-hidden-card="true" id="9" data-color="color-5"></div>
+    <div class="card" data-hidden-card="true" id="10" data-color="color-5"></div>
+    <div class="card" data-hidden-card="true" id="11" data-color="color-6"></div>
+    <div class="card" data-hidden-card="true" id="12" data-color="color-6"></div>
 
-    <div class="col-lg-3 card" data-hidden-card="true" id="13" data-color="color-7"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="14" data-color="color-7"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="15" data-color="color-8"></div>
-    <div class="col-lg-3 card" data-hidden-card="true" id="16" data-color="color-8"></div>
+    <div class="card" data-hidden-card="true" id="13" data-color="color-7"></div>
+    <div class="card" data-hidden-card="true" id="14" data-color="color-7"></div>
+    <div class="card" data-hidden-card="true" id="15" data-color="color-8"></div>
+    <div class="card" data-hidden-card="true" id="16" data-color="color-8"></div>
 
 </div>
 
@@ -67,8 +67,20 @@
     let currentPairOfColors = [];
     let selectedCardsIds = [];
 
-    for (let gameLevel of gameCards) {
-        gameLevel.addEventListener("click", flipCardHandler);
+    function mixCardsColor() {
+            let colorsPalette = ["color-1", "color-1", "color-2", "color-2", "color-3", "color-3", "color-4", "color-4", "color-5", "color-5", "color-6", "color-6", "color-7", "color-7", "color-8", "color-8"];
+            colorsPalette.sort(() => 0.5 - Math.random());
+            console.log(colorsPalette);
+            for (let i=0;i<16;i++) {
+                gameCards[i].setAttribute("data-color", colorsPalette[i]);
+            }
+        }
+
+    mixCardsColor();
+
+
+    for (let gameCard of gameCards) {
+        gameCard.addEventListener("click", flipCardHandler);
     }
 
     function flipCardHandler(e) {
@@ -128,6 +140,7 @@
                 alert("You won");
             }
         }
+
 
     }
 
